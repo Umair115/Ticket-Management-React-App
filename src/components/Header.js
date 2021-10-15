@@ -45,7 +45,7 @@ function Header() {
                     <div className="row align-items-center">
                         <div className="col-lg-3 col-md-3 col-12">
                             <div className="logo">
-                                <Link to="index.html">
+                                <Link to="/">
                                     <img src={Logo} alt="Logo"/>
                                 </Link>
                                 <div className="hamburger d-block d-lg-none">

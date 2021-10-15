@@ -7,6 +7,7 @@ import MoviePage from './pages/MoviePage';
 import DetailPage from './pages/DetailPage';
 import Error from './components/Error';
 import {Route, Switch } from 'react-router-dom';
+import BookNow from './pages/BookNow';
 
 function App() {
   return(
@@ -16,6 +17,7 @@ function App() {
       <Route path='/cricket' component={CricketPage} />
       <Route path='/movies' component={MoviePage} />
       <Route path='/detail' component={DetailPage} />
+      <Route path='/booking' component={BookNow} />
       <Route component={Error} />
       </Switch>
     </main>

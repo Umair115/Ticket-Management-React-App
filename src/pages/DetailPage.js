@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SubBanner from '../components/SubBanner';
 
-function DetailPage(){
+const DetailPage = () => {
 
     return(
         <div>

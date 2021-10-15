@@ -6,7 +6,7 @@ import Download from '../components/Download';
 import VideoSection from '../components/VideoSection';
 import Footer from '../components/Footer';
 
-function HomePage() {
+const HomePage = () => {
   return(
     <div className='homepage'>
       <Header active="home" />

@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SubBanner from "../components/SubBanner";
 import Listing from "../components/Listing";
-function CricketPage(){
+const CricketPage = () => {
     return(
         <div className="cricketpage ">
             <Header active="cricket"/>
