@@ -1,5 +1,5 @@
 import React from "react";
-
+import SeatImg from '../images/chair-img1.png';
 const Seats = () => {
     return(
         <div className="bg-dark">
@@ -42,7 +42,7 @@ const Seats = () => {
                                     <li>
                                         <div className="form-group">
                                             <input type="checkbox" id="chair1" checked/>
-                                            <label for="chair1">Seat No: 01 <span><img src="images/chair-img1.png" alt="Chair Image"/></span></label>
+                                            <label for="chair1">Seat No: 01 <span><img src={SeatImg} alt="Chair Image"/></span></label>
                                         </div>
                                     </li>
                                     

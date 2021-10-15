@@ -1,5 +1,8 @@
 import React from 'react';
-
+import Card1 from '../images/card-1.png';
+import Card2 from '../images/card-2.png';
+import Card3 from '../images/card-3.png';
+import Card4 from '../images/card-4.png';
 const Payment = () => {
     return(
         <div className="bg-dark">
@@ -14,22 +17,22 @@ const Payment = () => {
                                             <ul className="list-inline">
                                                 <li className="list-inline-item checkbox">
                                                     <input type="radio" name="card-type" id="card-1"/>
-                                                    <label for="card-1"><img src="images/card-1.png"
+                                                    <label for="card-1"><img src={Card1}
                                                         alt="card-img"/></label>
                                                 </li>
                                                 <li className="list-inline-item checkbox">
                                                     <input type="radio" name="card-type" id="card-2"/>
-                                                    <label for="card-2"><img src="images/card-2.png"
+                                                    <label for="card-2"><img src={Card2}
                                                         alt="card-img"/></label>
                                                 </li>
                                                 <li className="list-inline-item checkbox">
                                                     <input type="radio" name="card-type" id="card-3"/>
-                                                    <label for="card-3"><img src="images/card-3.png"
+                                                    <label for="card-3"><img src={Card3}
                                                         alt="card-img"/></label>
                                                 </li>
                                                 <li className="list-inline-item checkbox">
                                                     <input type="radio" name="card-type" id="card-4"/>/
-                                                    <label for="card-4"><img src="images/card-4.png"
+                                                    <label for="card-4"><img src={Card4}
                                                         alt="card-img"/></label>
                                                 </li>
                                             </ul>

@@ -4,7 +4,7 @@ import { faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Logo from '../images/logo.png';
-function Header() {
+function Header(props) {
     return (
         <header className="header" id="header">
             <div className="top-row">
@@ -60,10 +60,10 @@ function Header() {
                         <div className="col-lg-9 col-md-9 col-12">
                             <div className="d-flex align-items-center justify-content-center">
                                 <ul className=" navigation-list d-none d-lg-block">
-                                    <li className="active"><Link to="/" style={{textDecoration: 'none'}}>Home</Link></li>
-                                    <li className=""><Link to="/cricket" style={{textDecoration: 'none'}}>Cricket</Link></li>
-                                    <li className=""><Link to="/movies" style={{textDecoration: 'none'}}>Movies</Link></li>
-                                    <li className=""><Link to="/booking" style={{textDecoration: 'none'}}>Book Now</Link></li>
+                                    <li className={props.active == "home" ? "active" : ""}><Link to="/" style={{textDecoration: 'none'}}>Home</Link></li>
+                                    <li className={props.active == "cricket" ? "active" : ""}><Link to="/cricket" style={{textDecoration: 'none'}}>Cricket</Link></li>
+                                    <li className={props.active == "movies" ? "active" : ""}><Link to="/movies" style={{textDecoration: 'none'}}>Movies</Link></li>
+                                    <li className={props.active == "booking" ? "active" : ""}><Link to="/booking" style={{textDecoration: 'none'}}>Book Now</Link></li>
                                 </ul>
                             </div>
                         </div>

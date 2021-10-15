@@ -6,7 +6,7 @@ import SubBanner from '../components/SubBanner';
 const BookNow = () => {
     return(
         <div>
-            <Header/>
+            <Header active="booking"/>
             <SubBanner heading={"Booking"}/>
             <Booking/>
             <Footer/>
