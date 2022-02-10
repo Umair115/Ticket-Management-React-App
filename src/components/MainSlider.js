@@ -24,7 +24,7 @@ function MainSlider() {
                             </div>
                         </div>
                     </div>
-                    <div className="slider-form">
+                    {/* <div className="slider-form">
                         <div className="container">
                             <nav>
                                 <div className="nav nav-tabs mc-b-2" id="nav-tab" role="tablist">
@@ -100,7 +100,7 @@ function MainSlider() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

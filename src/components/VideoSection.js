@@ -8,7 +8,7 @@ function VideoSection(){
                     <h3>Our Purpose</h3>
                 </div>
                 <div className="video-img">
-                    <video className="video" loop autoplay>
+                    <video className="video" loop autoplay={true}>
                         <source src={CompanyAnnouncement} type="video/mp4"/>
                     </video>
                 </div>

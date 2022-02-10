@@ -9,7 +9,7 @@ const DetailPage = () => {
     return(
         <div>
             <Header/>
-            <SubBanner heading="MATCH DETAILS"/>
+            <SubBanner heading="DETAILS"/>
             <Details/>
             <Footer/>
         </div>

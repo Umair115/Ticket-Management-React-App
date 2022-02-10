@@ -63,7 +63,7 @@ function Header(props) {
                                     <li className={props.active == "home" ? "active" : ""}><Link to="/" style={{textDecoration: 'none'}}>Home</Link></li>
                                     <li className={props.active == "cricket" ? "active" : ""}><Link to="/cricket" style={{textDecoration: 'none'}}>Cricket</Link></li>
                                     <li className={props.active == "movies" ? "active" : ""}><Link to="/movies" style={{textDecoration: 'none'}}>Movies</Link></li>
-                                    <li className={props.active == "booking" ? "active" : ""}><Link to="/booking" style={{textDecoration: 'none'}}>Book Now</Link></li>
+                                    {/* <li className={props.active == "booking" ? "active" : ""}><Link to="/booking" style={{textDecoration: 'none'}}>Book Now</Link></li> */}
                                 </ul>
                             </div>
                         </div>

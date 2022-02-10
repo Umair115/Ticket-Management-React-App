@@ -1,17 +1,18 @@
 import React from "react";
 
 const UserInformation = () => {
+    const [fname,setFName] = React.useState("");
     return(
         <div className="bg-dark">
             <h3 className="text-uppercase">Let us know who you are</h3>
                         <div className="book-who-wrapper mc-b-5">
                             <h4>Personal Information</h4>
-                            <form action="#">
+                            
                                 <div className="row">
                                     <div className="col-lg-4 col-12">
                                         <div className="form-group">
                                             <label>First Name</label>
-                                            <input type="text" className="form-control" placeholder="Enter First Name"/>
+                                            <input type="text" value={fname} onChange={(event)=>setFName(event.target.value)} className="form-control" placeholder="Enter First Name"/>
                                         </div>
                                     </div>
                                     <div className="col-lg-4 col-12">
@@ -79,8 +80,8 @@ const UserInformation = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button className="primary-btn primary-bg">Continue</button>
-                            </form>
+                                <button className="primary-btn primary-bg" onClick={()=>{console.log(fname)}}>Continue</button>
+                            
                         </div>
         </div>
     )

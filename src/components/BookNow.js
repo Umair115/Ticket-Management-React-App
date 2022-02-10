@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieBanner from '../images/movies-banner.jpg'; 
 import CricketBanner from '../images/cricket-banner.jpg'; 
+import { Link, useLocation } from "react-router-dom";
 function BookNow(){
     return(
         <div className="movies-sec background-dark">
@@ -18,7 +19,7 @@ function BookNow(){
                                 <p className="mc-b-4">A film, also called a movie, motion picture or moving picture, is a work of visual art used to simulate experiences that communicate ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving
                                     images.
                                 </p>
-                                <a href="movies.html" className="primary-btn primary-bg" style={{textDecoration: 'none'}}>Explore Now</a>
+                                <Link to="/movies" className="primary-btn primary-bg" style={{textDecoration: 'none'}}>Explore Now</Link>
                             </div>
                         </div>
                     </div>
@@ -30,7 +31,7 @@ function BookNow(){
                             <div className="primary-heading color-light text-center">
                                 <h3 className="mc-b-4">Cricket</h3>
                                 <p className="mc-b-4">Cricket is a bat-and-ball game played between two teams of eleven players on a field at the centre of which is a 22-yard pitch with a wicket at each end, each comprising two bails balanced on three stumps.</p>
-                                <a href="cricket.html" className="primary-btn primary-bg" style={{textDecoration: 'none'}}>Explore Now</a>
+                                <Link to="/cricket" className="primary-btn primary-bg" style={{textDecoration: 'none'}}>Explore Now</Link>
                             </div>
                         </div>
                     </div>

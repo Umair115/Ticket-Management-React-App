@@ -38,7 +38,7 @@ function Footer(){
                                 <ul className="footer-list">
                                     <li> <Link to="/movies"  style={{textDecoration: 'none'}}> Movies </Link> </li>
                                     <li> <Link to="/cricket"  style={{textDecoration: 'none'}}> Cricket </Link> </li>
-                                    <li> <Link to="/booking"  style={{textDecoration: 'none'}}> Book Now </Link> </li>
+                                    {/* <li> <Link to="/booking"  style={{textDecoration: 'none'}}> Book Now </Link> </li> */}
                                 </ul>
                             </div>
                         </div>

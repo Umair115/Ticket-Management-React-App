@@ -8,7 +8,7 @@ import DetailPage from './pages/DetailPage';
 import Error from './components/Error';
 import {Route, Switch } from 'react-router-dom';
 import BookNow from './pages/BookNow';
-
+import NFT from "./components/NFT"
 function App() {
   return(
     <main>
