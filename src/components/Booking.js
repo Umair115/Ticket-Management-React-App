@@ -25,9 +25,55 @@ const Booking = (props) => {
     const [showThankYouModal, setShowThankYouModal] = React.useState('none');
     const history = useHistory();
     // console.log(props)
+
+    function validateFields(){
+        if(fname == ""){
+            alert("First Name Can't Be Empty")
+            return "Field Error"
+        }
+        if(lname == ""){
+            alert("Last Name Can't Be Empty")
+            return "Field Error"
+        }
+        if(email == ""){
+            alert("Email Can't Be Empty")
+            return "Field Error"
+        }
+        if(cnic == ""){
+            alert("CNIC Can't Be Empty")
+            return "Field Error"
+        }
+        if(cardNo == ""){
+            alert("Card No Can't Be Empty")
+            return "Field Error"
+        }
+        if(cardHolder == ""){
+            alert("Card Holder Can't Be Empty")
+            return "Field Error"
+        }
+        if(expiry == ""){
+            alert("Expiry Can't Be Empty")
+            return "Field Error"
+        }
+        if(cvv == ""){
+            alert("CVV Can't Be Empty")
+            return "Field Error"
+        }
+        if(noOfTicket == 0 && props.type == 'match'){
+            alert("Please Select No Of Seats To Continue")
+            return "Field Error"
+        } 
+        if(selectedSeat.length == 0 && props.type == 'movie'){
+            alert("Please Select Seats To Continue")
+            return "Field Error"
+        }
+    }
+
+    console.log(selectedSeat.length)
+
     async function getSeats(){
         if(props.type == 'movie'){
-            const url = 'https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/public/api/seats/'+props.item.movie_name;
+            const url = 'https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/api/seats/'+props.item.movie_name;
             let response = await fetch(url);
             let data = await response.json();
             let _seats = data.seats;
@@ -43,7 +89,7 @@ const Booking = (props) => {
             setLoading(false);
         }
         else if(props.type == 'match'){
-            const url = 'https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/public/api/match-seats/'+props.item.match_between+'/'+props.item.match_date;
+            const url = 'https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/api/match-seats/'+props.item.match_between+'/'+props.item.match_date;
             let response = await fetch(url);
             let data = await response.json();
             setSeats(data.seats)
@@ -94,6 +140,8 @@ const Booking = (props) => {
         // const NFTSigner = NFTCont.connect(signer);
       } 
 
+      
+
     function checkSeatStatus(seat){
           
             let tempSeat = availableSeat.find((item) => item ? item.id === seat.row_no+seat.seat_name: null)
@@ -109,47 +157,55 @@ const Booking = (props) => {
             else if(selectTempSeat){
                 return "#f2d467";
             }
+
+            console.log(seat)
         
     }
     async function bookTickets(){
 
-        var nft = connectAccounts(cnic);
+        var fieldChecks = validateFields();
 
-        axios.post('https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/public/api/bookTicket', 
-        {
-            "type": props.type,
-            "first_name" : fname,
-            "last_name" : lname,
-            "email": email,
-            "cnic": cnic,
-            "nft": nft,
-            "cardNo": cardNo,
-            "cardHolder": cardHolder,
-            "expiry": expiry,
-            "cvv": cvv,
-            "ticket_type": props.type,
-            "movie": props.type == 'movie' ? props.item.movie_name : '',
-            "match": props.type == 'match' ? props.item.match_between : '',
-            "total_amount": price,
-            "total_no_seats": props.type == 'match' ? noOfTicket : 0,
-            "seats": props.type == 'movie' ? selectedSeat : {
-                seatType : matchSeatType,
-                tickets : noOfTicket
-            }
-                
-        })
-          .then((response) => {
-            console.log(response);
-            // if(response.json().status === 'success'){
-                // setShowThankYouModal('block')
-                // setTimeout(()=>{
-                //     history.push('/')
-                // },2000)
-                
-            // }
-          }, (error) => {
-            console.log(error);
-          });
+        if(fieldChecks !== 'Field Error'){
+
+            var nft = connectAccounts(cnic);
+    
+            axios.post('https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/api/bookTicket', 
+            {
+                "type": props.type,
+                "first_name" : fname,
+                "last_name" : lname,
+                "email": email,
+                "cnic": cnic,
+                "nft": nft,
+                "cardNo": cardNo,
+                "cardHolder": cardHolder,
+                "expiry": expiry,
+                "cvv": cvv,
+                "ticket_type": props.type,
+                "movie": props.type == 'movie' ? props.item.movie_name : '',
+                "match": props.type == 'match' ? props.item.match_between : '',
+                "total_amount": price,
+                "total_no_seats": props.type == 'match' ? noOfTicket : 0,
+                "seats": props.type == 'movie' ? selectedSeat : {
+                    seatType : matchSeatType,
+                    tickets : noOfTicket
+                }
+                    
+            })
+              .then((response) => {
+                console.log(response);
+                // if(response.json().status === 'success'){
+                    setShowThankYouModal('block')
+                    setTimeout(()=>{
+                        history.push('/')
+                    },2000)
+                    
+                // }
+              }, (error) => {
+                console.log(error);
+              });
+        }
+
           
 
         
@@ -290,8 +346,8 @@ const Booking = (props) => {
                                         </div>
                                         <div className="col-lg-4 col-12">
                                             <div className="form-group">
-                                                <label>Phone</label>
-                                                <input type="text" value={cnic} onChange={(event)=>setCNIC(event.target.value)} className="form-control" placeholder="Enter Phone Number"/>
+                                                <label>CNIC</label>
+                                                <input type="text" value={cnic} data-inputmask="'mask': '99999-9999999-9'"  onChange={(event)=>setCNIC(event.target.value)} className="form-control" placeholder="Enter CNIC"/>
                                             </div>
                                         </div>
                                         
@@ -323,7 +379,7 @@ const Booking = (props) => {
                                         <div className="col-lg-6 col-12">
                                             <div className="form-group">
                                                 <label>Card Number</label>
-                                                <input type="number" value={cardNo} onChange={(event)=>setCardNo(event.target.value)} className="form-control" placeholder="xxxx xxxx xxxx xxxx"/>
+                                                <input type="text" value={cardNo} onChange={(event)=>setCardNo(event.target.value)} className="form-control" placeholder="xxxxxxxxxxxxxxxx"/>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-12">
@@ -335,13 +391,13 @@ const Booking = (props) => {
                                         <div className="col-lg-6 col-12">
                                             <div className="form-group">
                                                 <label>Expiry Date</label>
-                                                <input type="text" value={expiry} onChange={(event)=>setExpiry(event.target.value)} className="form-control date-picker" placeholder="Enter Date"/>
+                                                <input type="text" value={expiry} onChange={(event)=>setExpiry(event.target.value)} className="form-control date-picker" placeholder="Enter Expiry Date (MM/YY)"/>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-12">
                                             <div className="form-group">
                                                 <label>CVV Code</label>
-                                                <input type="number" value={cvv} onChange={(event)=>setCVV(event.target.value)} className="form-control" placeholder="0000"/>
+                                                <input type="number" value={cvv} onChange={(event)=>setCVV(event.target.value)} className="form-control" placeholder="000"/>
                                             </div>
                                         </div>
                                     </div>
@@ -351,7 +407,13 @@ const Booking = (props) => {
                     </div>
                 </div>
                 <div className='col-lg-3 col-md-12 col-12'>
-                    Your Total Price Is : {price}
+                    <div className='book-wrapper'>
+                        <h3> Total Price </h3>
+                        <div className='book-who-wrapper'>
+                           <h4> Your Total Price Is :</h4>
+                           <h5 className='text-center' style={{fontSize: '50px'}}> {price} </h5>   
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

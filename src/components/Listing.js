@@ -8,9 +8,10 @@ function Listing(props){
     const [loading, setLoading] = React.useState(true);
     const temp_name = props.heading == 'Cricket' ? 'match' : 'movie';
     const getData = async() => {
-        const url = 'https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/public/api/all-' + (props.heading == 'Cricket' ? 'matches' : 'movies');
+        const url = 'https://cors-anywhere786.herokuapp.com/https://demo-websitedesignengine.com/demo/travel_fyp/api/all-' + (props.heading == 'Cricket' ? 'matches' : 'movies');
         // console.log(url)
         let response = await fetch(url);
+        // console.log(response.json())
         let data = await response.json();
         // console.log(data)
         setData(data.data);
